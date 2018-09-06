@@ -15,6 +15,10 @@ use Slim\Http\UploadedFile;
  * @return \Psr\Http\Message\ResponseInterface
  */
 
+//  $app->get('/prueba', function (Request $request, Response $response, array $args) {
+// $this->logger->addInfo('Prueba Lucas');
+//  });
+
 $app->get('/hello/{name}', "saludador:hola");
-$app->post('/login/', "logueador:login");
-$app->get('/session/', "sessionador:getSession");
+// $app->post('/login/', "logueador:login");
+// $app->get('/session/', "sessionador:getSession");
