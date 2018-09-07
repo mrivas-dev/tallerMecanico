@@ -20,5 +20,5 @@ use Slim\Http\UploadedFile;
 //  });
 
 $app->get('/hello/{name}', "saludador:hola");
-// $app->post('/login/', "logueador:login");
+$app->post('/login/', "logueador:login");
 // $app->get('/session/', "sessionador:getSession");

@@ -1,6 +1,8 @@
 <?php
 namespace App;
-
+	/**
+	 La clase mas fashion
+	 **/
 	 class Saludador{
 
 	 	function __construct($logger)

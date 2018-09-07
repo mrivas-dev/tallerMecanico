@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es" ng-app="loginApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="./assets/favicon.ico">
+  <title>Ingreso al sistema / Registro</title>
+  <!-- Bootstrap core CSS -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="../assets/css/product.css" rel="stylesheet">
+  <link href="../assets/css/login.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <!-- AngularJS material CSS Files -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+</head>
+<body>
+  <nav class="site-header sticky-top py-1">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+      </a>
+      <a class="py-2 d-none d-md-inline-block" href="#">Ingreso al sistema</a>
+      <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
+      <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
+      <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
+      <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
+      <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
+      <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="materialContainer">
+      <div class="box" ng-controller="loginCtrl">
+        <div class="title">INGRESO</div>
+        <div class="input">
+          <label for="name">Nombre de usuario</label>
+          <input ng-model="login.username" type="text" name="name" id="name">
+          <span class="spin"></span>
+        </div>
+        <div class="input">
+          <label for="pass">Contraseña</label>
+          <input ng-model="login.password" type="password" name="pass" id="pass">
+          <span class="spin"></span>
+        </div>
+        <div ng-disabled="!login.username" ng-click="doLogin(login)" class="button login">
+          <button><span>Ingresar</span> <i class="fa fa-check"></i></button>
+        </div>
+        <a href="" class="pass-forgot">Forgot your password?</a>
+      </div>
+      <div class="overbox" ng-controller="registroCtrl">
+        <div class="material-button alt-2"><span class="shape"></span></div>
+        <div class="title">REGISTER</div>
+        <div class="input">
+          <label for="regname">Username</label>
+          <input type="text" name="regname" id="regname">
+          <span class="spin"></span>
+        </div>
+        <div class="input">
+          <label for="regpass">Password</label>
+          <input type="password" name="regpass" id="regpass">
+          <span class="spin"></span>
+        </div>
+        <div class="input">
+          <label for="reregpass">Repeat Password</label>
+          <input type="password" name="reregpass" id="reregpass">
+          <span class="spin"></span>
+        </div>
+        <div class="button">
+          <button><span>NEXT</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="../assets/js/popper.min.js"></script>
+  <!-- Ionicon JavaScript -->
+  <script src="https://unpkg.com/ionicons@4.3.0/dist/ionicons.js"></script>
+  <!-- Bootstrap JavaScript -->
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+  <script src="../assets/js/login.js"></script>
+  <script src="../app/login.js"></script>
+</body>
+</html>

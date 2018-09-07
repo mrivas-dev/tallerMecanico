@@ -15,7 +15,6 @@ $container['saludador'] = function ($c) {
 	$saludador = new App\Saludador($c['logger']);
 	return $saludador;
 };
-//SESSION WRITE CLOSE!!!!
 $container['sessionador'] = function ($c) {
 	$session = new App\Session($c['logger']);
 	return $session;
