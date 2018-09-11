@@ -21,5 +21,15 @@ class Login
 		$rta['message'] = 'Login: '.$alertas[$rand];
 		return $response->withJson($rta);
 	}
+
+	function registro($request,$response,array $args){
+		$todo = $request->getParsedBody();
+		//register
+		$rta = array(
+			'status' => 'success',
+			'message' => 'Registro correcto'
+		);
+		return $response->withJson($rta);
+	}
 }
 ?>

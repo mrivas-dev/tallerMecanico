@@ -1,5 +1,23 @@
 var app = angular.module('loginApp', ['ngMaterial']);
-app.controller('registroCtrl', function($scope, $mdToast, $timeout, $q, $log, $http, $window) {});
+app.controller('registroCtrl', function($scope, $mdToast, $timeout, $q, $log, $http, $window) {
+  $scope.registrar = function(){
+
+    $http.post('../admin/api/registro/', $scope.registro).then( function(data){
+        var result = data['data'];
+      //  console.log(result);
+        if(result.status=='success'){
+          alert('correcto');
+        //  $scope.tostado(resul['message'], resul['status']);
+        }else{
+        //  $scope.tostado('Error', resul['status']);
+        }
+
+    }).catch(function(resultado){
+      //  deferred.reject(resultado);
+    });
+
+  };
+});
 app.controller('loginCtrl', function($scope, $mdToast, $timeout, $q, $log, $http, $window) {
     $scope.doLogin = function(usuario) {
         var deferred;
