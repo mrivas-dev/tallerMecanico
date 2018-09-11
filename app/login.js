@@ -1,30 +1,43 @@
 var app = angular.module('loginApp', ['ngMaterial']);
-app.controller('registroCtrl', function($scope, $mdToast, $timeout, $q, $log, $http, $window) {
+app.factory('tostadoService',function($mdToast){
+  var tost = {};
+  tost.tostado = function(texto,tipo){
+    $mdToast.show(
+        $mdToast.simple()
+        .toastClass('md-toast-'+tipo)
+        .textContent(texto)
+        .position('bottom left')
+        .hideDelay(3000)
+        );
+  };
+  tost.closeToast = function(){
+    $mdToast.hide();
+  };
+  return tost;
+})
+app.controller('registroCtrl', function($scope, $timeout, $q, $log, $http, $window,tostadoService) {
   $scope.registrar = function(){
 
     $http.post('../admin/api/registro/', $scope.registro).then( function(data){
         var result = data['data'];
-      //  console.log(result);
         if(result.status=='success'){
-          alert('correcto');
-        //  $scope.tostado(resul['message'], resul['status']);
+          tostadoService.tostado(result.message,'success');
         }else{
-        //  $scope.tostado('Error', resul['status']);
+          tostadoService.tostado(result.message,'error');
         }
-
     }).catch(function(resultado){
       //  deferred.reject(resultado);
     });
 
   };
-});
-app.controller('loginCtrl', function($scope, $mdToast, $timeout, $q, $log, $http, $window) {
+})
+app.controller('loginCtrl', function($scope, $timeout, $q, $log, $http, $window,tostadoService) {
     $scope.doLogin = function(usuario) {
         var deferred;
         deferred = $q.defer();
         $http.post('../admin/api/login/', usuario).then( function(data){
             var resul = data['data'];
-            $scope.tostado(resul['message'], resul['status']);
+            tostadoService.tostado(resul['message'], resul['status']);
             if(resul['status'] == 'success'){
               console.log("success Papi")
             }
@@ -33,18 +46,6 @@ app.controller('loginCtrl', function($scope, $mdToast, $timeout, $q, $log, $http
             deferred.reject(resultado);
         });
         return deferred.promise;
-    };
-    $scope.closeToast = function() {
-        $mdToast.hide();
-    };
-    $scope.tostado = function(texto,tipo) {
-        $mdToast.show(
-            $mdToast.simple()
-            .toastClass('md-toast-'+tipo)
-            .textContent(texto)
-            .position('bottom left')
-            .hideDelay(3000)
-            );
     };
 });
 $(document).ready(function() {

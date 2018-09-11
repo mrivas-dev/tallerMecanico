@@ -25,10 +25,22 @@ class Login
 	function registro($request,$response,array $args){
 		$todo = $request->getParsedBody();
 		//register
-		$rta = array(
-			'status' => 'success',
-			'message' => 'Registro correcto'
-		);
+		$errs = array();
+		if($todo['regpass']!=$todo['reregpass']){
+			$errs[] = "Las contraseñas no coinciden";
+		}
+		
+		if(count($errs)>0){
+			$rta = array(
+				'status' => 'error',
+				'message' => $errs[0]
+			);
+		}else{
+			$rta = array(
+				'status' => 'success',
+				'message' => 'Registro correcto'
+			);
+		}
 		return $response->withJson($rta);
 	}
 }
